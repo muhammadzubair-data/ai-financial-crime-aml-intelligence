@@ -1,6 +1,6 @@
 # Runtime dependencies (versions the project was built and tested with)
 pandas==3.0.5
-numpy==2.5.3
+numpy>=1.26.4,<2.3
 polars==2.1.0
 duckdb==2.0.0
 pyarrow==26.0.1
