@@ -7,7 +7,7 @@ pyarrow==26.0.1
 networkx>=3.2,<4.0
 scikit-learn==1.9.1
 lightgbm==4.7.0
-shap==0.54.1
+shap>=0.46,<0.51
 streamlit==1.67.0
 plotly==7.1.0
 -e .
