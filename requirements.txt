@@ -1,0 +1,13 @@
+# Runtime dependencies (versions the project was built and tested with)
+pandas==3.0.5
+numpy==2.5.3
+polars==2.1.0
+duckdb==2.0.0
+pyarrow==26.0.1
+networkx==3.7
+scikit-learn==1.9.1
+lightgbm==4.7.0
+shap==0.54.1
+streamlit==1.67.0
+plotly==7.1.0
+-e .

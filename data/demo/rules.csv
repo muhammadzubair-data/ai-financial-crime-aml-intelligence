@@ -1,0 +1,9 @@
+rule_id,name,description,weight
+R01,Possible structuring,"3+ cash deposits between 90% and 100% of the 10,000 threshold in a month",3.0
+R02,High cash volume,"Cash deposits of 30,000+ in a month",1.0
+R03,Rapid movement of funds,"80%+ of outgoing value was received within the previous 24h, and 15,000+ sent",2.0
+R04,Fan-out burst,"Payments of 1,000+ to 8+ counterparties within 72 hours",1.5
+R05,Fan-in burst,"Receipts of 1,000+ from 8+ counterparties within 72 hours",1.5
+R06,High-risk jurisdiction exposure,"10,000+ sent to or received from a high-risk jurisdiction",2.0
+R07,Large flows on a new account,"Account under 180 days old with 25,000+ incoming",1.5
+R08,Round-amount pattern,"Half or more of 5+ transactions are round amounts of 1,000+",0.5

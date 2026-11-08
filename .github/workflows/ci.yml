@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check src app tests
+      - name: Unit, pipeline and dashboard tests
+        run: pytest -q
+      - name: Demo build is reproducible
+        run: |
+          # two builds on this runner must match exactly, even with different hash seeds
+          PYTHONHASHSEED=1 python -m amlintel.build --profile demo --out /tmp/build_a
+          PYTHONHASHSEED=2 python -m amlintel.build --profile demo --out /tmp/build_b
+          python scripts/check_reproducible.py /tmp/build_a /tmp/build_b
+          # and agree with the committed demo artifacts (different CPU, so allow tiny float drift)
+          python scripts/check_reproducible.py data/demo /tmp/build_a --tolerance 0.02

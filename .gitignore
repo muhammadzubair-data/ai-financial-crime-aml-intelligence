@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.DS_Store
+# live case edits made in the dashboard (the seeded cases.db is committed)
+data/*/cases_live.db
+# large local builds
+data/full/
+data/test/
+build/
+dist/
